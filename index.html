@@ -1,254 +1,239 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz: Wundmanagement</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Wundmanagement</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f6fb;
-      color: #1f2937;
-      line-height: 1.6;
-    }
+<style>
+body {
+  font-family: Arial;
+  background: #f2f6fb;
+  margin: 0;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 24px;
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+}
 
-    h1 {
-      text-align: center;
-      color: #0f766e;
-      margin-bottom: 10px;
-    }
+h1 {
+  text-align: center;
+  color: #0f766e;
+}
 
-    .subtitle {
-      text-align: center;
-      color: #64748b;
-      margin-bottom: 30px;
-    }
+.question {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 10px;
+}
 
-    .question {
-      margin-bottom: 28px;
-      padding: 20px;
-      border-radius: 14px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
+label {
+  display: block;
+  margin: 8px 0;
+  padding: 8px;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-    .question h2 {
-      font-size: 18px;
-      margin-top: 0;
-      color: #111827;
-    }
+.correct { background: #dcfce7; }
+.wrong { background: #fee2e2; }
 
-    label {
-      display: block;
-      margin: 10px 0;
-      padding: 10px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      background: #ffffff;
-      border: 1px solid #dbe4ef;
-      transition: 0.2s;
-    }
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #0f766e;
+  color: white;
+  font-size: 16px;
+}
 
-    label:hover {
-      background: #ecfeff;
-      border-color: #14b8a6;
-    }
-
-    input[type="radio"] {
-      margin-right: 10px;
-    }
-
-    button {
-      display: block;
-      margin: 30px auto 10px;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 999px;
-      background: #0f766e;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #115e59;
-      transform: translateY(-1px);
-    }
-
-    .result {
-      margin-top: 25px;
-      padding: 20px;
-      border-radius: 14px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      display: none;
-    }
-
-    .good {
-      background: #dcfce7;
-      color: #166534;
-      border: 1px solid #86efac;
-    }
-
-    .medium {
-      background: #fef9c3;
-      color: #854d0e;
-      border: 1px solid #fde68a;
-    }
-
-    .bad {
-      background: #fee2e2;
-      color: #991b1b;
-      border: 1px solid #fecaca;
-    }
-
-    .correct {
-      background: #dcfce7 !important;
-      border-color: #22c55e !important;
-    }
-
-    .wrong {
-      background: #fee2e2 !important;
-      border-color: #ef4444 !important;
-    }
-  </style>
+.result {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Quiz: Wundmanagement</h1>
-    <p class="subtitle">Wähle die richtige Antwort aus.</p>
 
-    <form id="quizForm">
+<div class="container">
+<h1>Quiz: Wundmanagement</h1>
 
-      <div class="question">
-        <h2>1. Welche Wunde zählt zu den geschlossenen Wunden?</h2>
-        <label><input type="radio" name="q1" value="a"> a) Schnittwunde</label>
-        <label><input type="radio" name="q1" value="b"> b) Schürfwunde</label>
-        <label><input type="radio" name="q1" value="c"> c) Prellung</label>
-        <label><input type="radio" name="q1" value="d"> d) Platzwunde</label>
-      </div>
+<form id="quizForm">
 
-      <div class="question">
-        <h2>2. Was beschreibt die Granulationsphase der Wundheilung?</h2>
-        <label><input type="radio" name="q2" value="a"> a) Blutstillung und Fibrinbildung</label>
-        <label><input type="radio" name="q2" value="b"> b) Neubildung von Bindegewebe und Kapillaren</label>
-        <label><input type="radio" name="q2" value="c"> c) Verschluss der Wundoberfläche</label>
-        <label><input type="radio" name="q2" value="d"> d) Bildung von Schorf</label>
-      </div>
+<!-- 1 -->
+<div class="question">
+<h3>1. Welche Wunde zählt zu den geschlossenen Wunden?</h3>
+<label><input type="radio" name="q1" value="a"> Schnittwunde</label>
+<label><input type="radio" name="q1" value="b"> Schürfwunde</label>
+<label><input type="radio" name="q1" value="c"> Prellung</label>
+<label><input type="radio" name="q1" value="d"> Platzwunde</label>
+</div>
 
-      <div class="question">
-        <h2>3. Welche Aussage trifft auf eine infizierte Wunde zu?</h2>
-        <label><input type="radio" name="q3" value="a"> a) Sie ist keimfrei.</label>
-        <label><input type="radio" name="q3" value="b"> b) Es gibt keine Entzündungszeichen.</label>
-        <label><input type="radio" name="q3" value="c"> c) Es treten Rötung, Schmerz und Eiter auf.</label>
-        <label><input type="radio" name="q3" value="d"> d) Die Wunde heilt ohne Narbenbildung.</label>
-      </div>
+<!-- 2 -->
+<div class="question">
+<h3>2. Granulationsphase?</h3>
+<label><input type="radio" name="q2" value="a"> Blutstillung</label>
+<label><input type="radio" name="q2" value="b"> Neubildung von Gewebe</label>
+<label><input type="radio" name="q2" value="c"> Verschluss</label>
+<label><input type="radio" name="q2" value="d"> Schorf</label>
+</div>
 
-      <div class="question">
-        <h2>4. Welche der folgenden Faktoren kann die Wundheilung negativ beeinflussen?</h2>
-        <label><input type="radio" name="q4" value="a"> a) Ausreichende Flüssigkeitszufuhr</label>
-        <label><input type="radio" name="q4" value="b"> b) Diabetes mellitus</label>
-        <label><input type="radio" name="q4" value="c"> c) Regelmäßige Wundreinigung</label>
-        <label><input type="radio" name="q4" value="d"> d) Gesunde Ernährung</label>
-      </div>
+<!-- 3 -->
+<div class="question">
+<h3>3. Infizierte Wunde?</h3>
+<label><input type="radio" name="q3" value="a"> keimfrei</label>
+<label><input type="radio" name="q3" value="b"> keine Symptome</label>
+<label><input type="radio" name="q3" value="c"> Rötung, Schmerz, Eiter</label>
+<label><input type="radio" name="q3" value="d"> ohne Narben</label>
+</div>
 
-      <div class="question">
-        <h2>5. Was ist ein Merkmal einer sekundären Wundheilung?</h2>
-        <label><input type="radio" name="q5" value="a"> a) Die Wunde wird chirurgisch verschlossen.</label>
-        <label><input type="radio" name="q5" value="b"> b) Die Heilung erfolgt ohne Narbenbildung.</label>
-        <label><input type="radio" name="q5" value="c"> c) Die Wunde heilt von unten nach oben.</label>
-        <label><input type="radio" name="q5" value="d"> d) Es gibt keine Keimbesiedlung.</label>
-      </div>
+<!-- 4 -->
+<div class="question">
+<h3>4. Negativer Faktor?</h3>
+<label><input type="radio" name="q4" value="a"> Flüssigkeit</label>
+<label><input type="radio" name="q4" value="b"> Diabetes</label>
+<label><input type="radio" name="q4" value="c"> Reinigung</label>
+<label><input type="radio" name="q4" value="d"> Ernährung</label>
+</div>
 
-      <div class="question">
-        <h2>6. Welche Phase der Wundheilung ist durch Blutstillung und Fibrinbildung gekennzeichnet?</h2>
-        <label><input type="radio" name="q6" value="a"> a) Exsudationsphase</label>
-        <label><input type="radio" name="q6" value="b"> b) Granulationsphase</label>
-        <label><input type="radio" name="q6" value="c"> c) Epithelisierungsphase</label>
-        <label><input type="radio" name="q6" value="d"> d) Regenerationsphase</label>
-      </div>
+<!-- 5 -->
+<div class="question">
+<h3>5. Sekundäre Heilung?</h3>
+<label><input type="radio" name="q5" value="a"> chirurgisch geschlossen</label>
+<label><input type="radio" name="q5" value="b"> ohne Narben</label>
+<label><input type="radio" name="q5" value="c"> von unten nach oben</label>
+<label><input type="radio" name="q5" value="d"> keimfrei</label>
+</div>
 
-      <button type="button" onclick="checkQuiz()">Antworten prüfen</button>
+<!-- 6 -->
+<div class="question">
+<h3>6. Blutstillung Phase?</h3>
+<label><input type="radio" name="q6" value="a"> Exsudation</label>
+<label><input type="radio" name="q6" value="b"> Granulation</label>
+<label><input type="radio" name="q6" value="c"> Epithelisierung</label>
+<label><input type="radio" name="q6" value="d"> Regeneration</label>
+</div>
 
-      <div id="result" class="result"></div>
-    </form>
-  </div>
+<!-- 7 -->
+<div class="question">
+<h3>7. Kontaminierte Wunde?</h3>
+<label><input type="radio" name="q7" value="a"> keimfrei</label>
+<label><input type="radio" name="q7" value="b"> Keime ohne Symptome</label>
+<label><input type="radio" name="q7" value="c"> Keime wachsen</label>
+<label><input type="radio" name="q7" value="d"> Entzündung</label>
+</div>
 
-  <script>
-    const correctAnswers = {
-      q1: "c",
-      q2: "b",
-      q3: "c",
-      q4: "b",
-      q5: "c",
-      q6: "a"
-    };
+<!-- 8 -->
+<div class="question">
+<h3>8. Was fördert Heilung?</h3>
+<label><input type="radio" name="q8" value="a"> Austrocknung</label>
+<label><input type="radio" name="q8" value="b"> Druck</label>
+<label><input type="radio" name="q8" value="c"> Feuchtes Milieu</label>
+<label><input type="radio" name="q8" value="d"> schlechte Reinigung</label>
+</div>
 
-    function checkQuiz() {
-      let score = 0;
-      const total = Object.keys(correctAnswers).length;
+<!-- 9 -->
+<div class="question">
+<h3>9. Epithelisierung?</h3>
+<label><input type="radio" name="q9" value="a"> Granulation</label>
+<label><input type="radio" name="q9" value="b"> Zellteilung</label>
+<label><input type="radio" name="q9" value="c"> Blutstillung</label>
+<label><input type="radio" name="q9" value="d"> Reinigung</label>
+</div>
 
-      document.querySelectorAll("label").forEach(label => {
-        label.classList.remove("correct", "wrong");
-      });
+<!-- 10 -->
+<div class="question">
+<h3>10. Lokaler Faktor?</h3>
+<label><input type="radio" name="q10" value="a"> Diabetes</label>
+<label><input type="radio" name="q10" value="b"> Infektion</label>
+<label><input type="radio" name="q10" value="c"> Rauchen</label>
+<label><input type="radio" name="q10" value="d"> Stress</label>
+</div>
 
-      for (let question in correctAnswers) {
-        const selected = document.querySelector(`input[name="${question}"]:checked`);
+<!-- 11 -->
+<div class="question">
+<h3>11. Primäre Heilung?</h3>
+<label><input type="radio" name="q11" value="a"> Schürfwunde</label>
+<label><input type="radio" name="q11" value="b"> Chirurgisch geschlossen</label>
+<label><input type="radio" name="q11" value="c"> infiziert</label>
+<label><input type="radio" name="q11" value="d"> Ulcus</label>
+</div>
 
-        if (selected) {
-          const selectedLabel = selected.parentElement;
+<!-- 12 -->
+<div class="question">
+<h3>12. Kritisch kolonisiert?</h3>
+<label><input type="radio" name="q12" value="a"> keimfrei</label>
+<label><input type="radio" name="q12" value="b"> Keime stören Heilung</label>
+<label><input type="radio" name="q12" value="c"> keine Symptome</label>
+<label><input type="radio" name="q12" value="d"> Infektion</label>
+</div>
 
-          if (selected.value === correctAnswers[question]) {
-            score++;
-            selectedLabel.classList.add("correct");
-          } else {
-            selectedLabel.classList.add("wrong");
+<!-- 13 -->
+<div class="question">
+<h3>13. Aseptische Wunde?</h3>
+<label><input type="radio" name="q13" value="a"> keimfrei</label>
+<label><input type="radio" name="q13" value="b"> Entzündung</label>
+<label><input type="radio" name="q13" value="c"> infiziert</label>
+<label><input type="radio" name="q13" value="d"> sekundär</label>
+</div>
 
-            const correctInput = document.querySelector(
-              `input[name="${question}"][value="${correctAnswers[question]}"]`
-            );
-            correctInput.parentElement.classList.add("correct");
-          }
-        } else {
-          const correctInput = document.querySelector(
-            `input[name="${question}"][value="${correctAnswers[question]}"]`
-          );
-          correctInput.parentElement.classList.add("correct");
-        }
-      }
+<!-- 14 -->
+<div class="question">
+<h3>14. Systemische Faktoren?</h3>
+<label><input type="radio" name="q14" value="a"> Alter, Ernährung, Diabetes</label>
+<label><input type="radio" name="q14" value="b"> Infektion, Druck</label>
+<label><input type="radio" name="q14" value="c"> Schorf</label>
+<label><input type="radio" name="q14" value="d"> Zellteilung</label>
+</div>
 
-      const resultBox = document.getElementById("result");
-      resultBox.style.display = "block";
-      resultBox.className = "result";
+<!-- 15 -->
+<div class="question">
+<h3>15. Granulationsphase?</h3>
+<label><input type="radio" name="q15" value="a"> Exsudation</label>
+<label><input type="radio" name="q15" value="b"> Granulation</label>
+<label><input type="radio" name="q15" value="c"> Epithelisierung</label>
+<label><input type="radio" name="q15" value="d"> Regeneration</label>
+</div>
 
-      const percent = Math.round((score / total) * 100);
+<button type="button" onclick="checkQuiz()">Проверить</button>
 
-      if (percent >= 80) {
-        resultBox.classList.add("good");
-        resultBox.textContent = `Sehr gut! Du hast ${score} von ${total} Punkten erreicht. Ergebnis: ${percent}%.`;
-      } else if (percent >= 50) {
-        resultBox.classList.add("medium");
-        resultBox.textContent = `Nicht schlecht. Du hast ${score} von ${total} Punkten erreicht. Ergebnis: ${percent}%.`;
-      } else {
-        resultBox.classList.add("bad");
-        resultBox.textContent = `Du hast ${score} von ${total} Punkten erreicht. Ergebnis: ${percent}%. Wiederholen lohnt sich.`;
-      }
-    }
-  </script>
+<div id="result" class="result"></div>
+
+</form>
+</div>
+
+<script>
+const answers = {
+q1:"c", q2:"b", q3:"c", q4:"b", q5:"c",
+q6:"a", q7:"b", q8:"c", q9:"b", q10:"b",
+q11:"b", q12:"b", q13:"a", q14:"a", q15:"b"
+};
+
+function checkQuiz(){
+let score=0;
+for(let q in answers){
+let selected=document.querySelector(`input[name=${q}]:checked`);
+if(selected && selected.value===answers[q]){
+score++;
+selected.parentElement.classList.add("correct");
+}else if(selected){
+selected.parentElement.classList.add("wrong");
+}
+}
+document.getElementById("result").innerText =
+`Твой результат: ${score} / 15`;
+}
+</script>
+
 </body>
 </html>
